@@ -1,0 +1,8 @@
+{
+    "name": "AceFace+",
+    "version": "0.1.0",
+    "main": "main.js",
+    "dependencies": {
+        "node-opencv": "0.0.2-security"
+    }
+}
