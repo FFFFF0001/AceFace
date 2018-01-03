@@ -17,4 +17,8 @@
 
 第二步：Node端识别图片。在图像识别领域，opencv是一套标准的解决方案，但是opencv由是C++编写，也有Java和Python的接口，但是没有JS的接口，没办法了吗？当然不是，已经有大神出口了Node版的，叫node-opencv，node-opencv不是重写了opencv，只是在Node层调用C++层的cv，最终还是在C++里面运行的。
 
-安装opencv和node-opencv可以对照之前的文章，这个东西比较难安装，我也是折腾好久才安装上。
+安装opencv和node-opencv可以对照之前的文章，这个东西比较难安装，我也是折腾好久才安装上。（问题，nodeV8.4.0装不上openCV，也不报错，试探性的升级到V9.2.1竟然装上了，很无奈。）
+
+
+## 进度
+> 当前使用了electron（完成桌面GUI应用程序的开发），目的是打出来桌面级应用，当然也可以不用，直接删除包内package.json 、 main.js、 就好。
