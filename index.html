@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <head>
-    <title>HTML5 GetUserMedia Demo</title>
+    <title>AceFace++</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.slim.js"></script>
 </head>
 <body>
 <video height="300px" width="300px" autoplay="autoplay"></video>
 <canvas id="canvas" height="250px" width="300px"></canvas>
 
 <script type="text/javascript">
+    var socket = io.connect();
     var video = document.querySelector('video');
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
@@ -49,6 +51,7 @@
     let drawVideoAtCanvas = (video, context) => {
         window.setInterval(function () {
             context.drawImage(video, 0, 0, 300, 250);
+            let dataURL = canvas.toDataURL(); // 通过toDataURL转化为base64编码
         }, 60);
     }
 

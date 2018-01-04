@@ -3,28 +3,21 @@ var path = require('path')
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 2018;
 const cv = require('opencv');
 const fs = require('fs-extra')
 server.listen(port, function () {
     console.log('Server listening at port %d', port)
-    cv.readImage("./mona.png", function (err, im) {
-        console.log(im)
-
-    })
 });
 
-// Routing
-app.use(express.static(path.resolve('../')));
-
-// Chatroom
+app.use(express.static(path.resolve('./')));
 
 var numUsers = 0;
 
 io.on('connection', function (socket) {
     console.log('--Connection--')
-    var videoWith = 0,
-        videoHeight = 0
+    let videoWith = 0,
+        videoHeight = 0;
     socket.on('message', function (data) {
         // socket.broadcast.emit('message', data);
         console.log(data)
@@ -91,4 +84,6 @@ io.on('connection', function (socket) {
             });
         });
     }
-})
+});
+
+io.listen(server);
