@@ -8,9 +8,11 @@
 <body>
 <video height="300px" width="300px" autoplay="autoplay"></video>
 <canvas id="canvas" height="250px" width="300px"></canvas>
-
 <script type="text/javascript">
-    var socket = io.connect();
+    var socket = io.connect('http://localhost:2018');
+    socket.on('message', function(data){
+        console.log(data.message);
+    });
     var video = document.querySelector('video');
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
@@ -51,7 +53,8 @@
     let drawVideoAtCanvas = (video, context) => {
         window.setInterval(function () {
             context.drawImage(video, 0, 0, 300, 250);
-            let dataURL = canvas.toDataURL(); // 通过toDataURL转化为base64编码
+            let dataURL = canvas.toDataURL(); // 通过toDataURL转化为base64编
+            socket.emit('image', dataURL) // 每60s生成一个base64并传到传到后台
         }, 60);
     }
 
