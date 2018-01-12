@@ -6,8 +6,8 @@
     <script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.slim.js"></script>
 </head>
 <body>
-<video height="300px" width="300px" autoplay="autoplay"></video>
-<canvas id="canvas" height="250px" width="300px"></canvas>
+<video height="300px" width="300px" autoplay="autoplay"/>
+<canvas id="canvas" height="250px" width="300px"/>
 <script type="text/javascript">
     var socket = io.connect('http://localhost:2018');
     socket.on('message', function(data){
